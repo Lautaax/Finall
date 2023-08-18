@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Informatic supplies</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="products">Home</a>
+        </li>
+      </ul>
+          <div><a href="/profile"><button>Profile</button></a></div>
+      <div><a href="/admin"><button>User administration</button></a></div>
+      <div><a href="cart/{{user.cart}}"><button>Show cart</button></a></div>
+      {{!-- {{#if valor}}
+         <div><a href="/form-products"><button>Product form</button></a></div>
+      {{/if}} --}}
+      
+       
+      <div><button id="logout">Log out</button></div>
+    </div>
+  </div>
+</nav>
+<div id="app">
+  <h1 id="productId">Details of the product with the ID
+    {{product._id}}</h1>
+  <input style='visibility: hidden' type="text" name="cid" id="cid" value={{user.cart}} />
+  <h2 style='display:none'>{{user.cart}}</h2>
+  <input style='visibility: hidden' type="text" name="pid" id="pid" value={{product._id}} >
+  <div id="productDetail" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    <div id="product-{{product._id}}" class="max-w-sm border rounded-lg shadow bg-gray-800 border-gray-700 m-1">
+      <div>
+        {{#each product.thumbnails}}
+        <img src="{{this}}" alt="product image" />
+        {{/each}}
+      </div>
+      <div>
+        <h5 id="title">{{product.title}}</h5>
+        <p>Description:
+          {{product.description}}</p>
+        <p>Category:
+          {{product.category}}</p>
+        <p id="stock">Available stock:
+          {{product.stock}}</p>
+        <p>Product code:
+          {{product.code}}</p>
+
+        <div>
+          <p>${{product.price}}</p>
+          <button id="botonForm">Add to Cart 🛒</button>
+        </div>
+      </div>
+    </div>
+    <a href="/products"><button>Volver</button></a>
+  </div>
+</div>
+<script src="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js
+"></script>
+<script type="module" src="/js/product.js"></script>

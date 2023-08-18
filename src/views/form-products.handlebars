@@ -1,0 +1,131 @@
+<div id="app" class="p-4 bg-slate-800/95">
+
+  <div class="grid grid-cols-2">
+    <form
+      action="/api/products"
+      id="addProductForm"
+      method="post"
+      enctype="multipart/form-data"
+  
+    >
+      <h3
+        class="flex p-2 justify-center font-mono text-lg text-slate-200"
+      >Upload a new product:</h3>
+      <div class="relative z-0 w-full mb-6 group">
+        <input
+          type="text"
+          name="title"
+          id="title"
+          
+          placeholder=" "
+          required
+        />
+        <label
+          for="title"
+         
+        >Title</label>
+      </div>
+      <div class="relative z-0 w-full mb-6 group">
+        <input
+        
+          placeholder=" "
+          type="text"
+          name="description"
+          id="description"
+          required
+        />
+        <label
+         
+          for="description"
+        >Description</label>
+      </div>
+      <div class="relative z-0 w-full mb-6 group">
+        <input
+         
+          placeholder=" "
+          type="text"
+          name="code"
+          id="code"
+          required
+        />
+        <label
+      
+          for="code"
+        >Code</label>
+      </div>
+      <div class="relative z-0 w-full mb-6 group">
+        <input
+         
+          placeholder=" "
+          type="number"
+          name="price"
+          id="price"
+          required
+        />
+        <label
+          
+          for="price"
+        >Price</label>
+      </div>
+      <div class="relative z-0 w-full mb-6 group">
+        <input
+         
+          placeholder=" "
+          type="number"
+          name="stock"
+          id="stock"
+          required
+        />
+        <label
+         
+          for="stock"
+        >Stock</label>
+      </div>
+      <div class="relative z-0 w-full mb-6 group">
+        <input
+         
+          placeholder=" "
+          type="text"
+          name="category"
+          id="category"
+          required
+        />
+        <label
+         
+          for="category"
+        >Category</label>
+      </div>
+            <div class="relative z-0 w-full mb-6 group">
+        <input
+         
+          placeholder=" "
+          type="text"
+          name="owner"
+          id="owner"
+          required
+        />
+        <label
+         
+          for="owner"
+        >Owner</label>
+      </div>
+      <div class="relative z-0 w-full mb-6 group -mt-1">
+        <label
+         
+          for="thumbnails"
+        >Product Thumbnails</label>
+        <input
+         
+          type="file"
+          id="thumbnails"
+          name="thumbnails"
+          multiple
+        />
+
+      </div>
+      <button
+        type="submit"
+      
+      >Submit! 🖥️</button>
+      
+    </form>

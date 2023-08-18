@@ -1,0 +1,92 @@
+{{!< main}}
+
+<div class="container-fluid">
+    <div class="d-flex flex-column vh-100 justify-content-center align-items-center">
+        <div class="col-8 d-flex flex-column align-items-center justify-content-center">
+            <div class="border border-2 rounded shadow p-5">
+                {{#if ticketFinal.error}}
+                {{#if ticket.unsuccessfulProducts.length}}
+                <h3>
+                    <i class="fa-solid fa-triangle-exclamation text-warning"></i>
+                    Los siguientes productos no pudieron agregarse al carrito
+                </h3>
+                <small class="text-muted">
+                    Esto sucede por falta de stock en ciertos productos que disponía en el carrito
+                </small>
+                <div class="my-3">
+                    <h5 class="text-muted">
+                        <i class="fa-solid fa-list"></i>
+                        Productos que no pudieron procesarse: 
+                    </h5>
+                    <table class="table table-striped table-danger">
+                        <thead>
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Descripción</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Cantidad en el carrito</th>
+                            <th scope="col">Stock actual</th>
+                            <th scope="col">...</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {{#each ticket.   unsuccessfulProducts}}
+                            <tr data-product-id="{{product._id}}">
+                            <td>{{product.title}}</td>
+                            <td>{{product.description}}</td>
+                            <td>{{product.price}}</td>
+                            <td>{{quantity}}</td>
+                            <td>{{product.stock}}</td>
+                            {{!-- <td>
+                                <button class="btn btn-primary" onclick="deleteFromCart('{{@root.user.cart}}', '{{product._id}}')">
+                                <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </td> --}}
+                            </tr>
+                        {{/each}}
+                        </tbody>
+                    </table>
+                    {{else}}
+                    <h3>{{ticketFinal.error}}</h3>
+                    {{/if}}
+                </div>
+                {{else}}
+                <h2>
+                    <i class="fas fa-receipt"></i> Ticket de compra
+                </h2>
+                <small class="text-muted">
+                    Por favor no pierdas el identificador de tu compra.
+                </small>
+                <div class="border border-2 px-4 py-3 rounded-2">
+                    <div class="d-flex flex-row align-items-center gap-2">
+                        <div class="col">
+                            <span>#{{ticketFinal.code}}</span>
+                        </div>
+                       
+                    </div>
+                </div>
+                <div class="my-3">
+                    <h5 class="text-muted">
+                        <i class="fa-solid fa-list-check"></i>
+                        Productos comprados con éxito: 
+                    </h5>
+                    <ul class="list-group">
+                        {{#each ticketFinal.successProducts}}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <p>{{product.title}} <span class="badge bg-primary rounded-pill">#{{quantity}}</span></p>
+                        </li>
+                         {{/each}}
+                    </ul>
+                </div>
+                <div class="my-3">
+                    <div class="d-flex flex-column align-items-end">
+                        <h3 class="text-muted">Total a pagar</h3>
+                        <h2>${{ticketFinal.amount}}</h2>
+                    </div>
+                </div>
+            </div>
+            {{/if}}
+        </div>
+        <a href="/products"><button>Volver al inicio</button></a>
+    </div>
+</div>

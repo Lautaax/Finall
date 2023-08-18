@@ -1,0 +1,234 @@
+paths:
+  /api/carts/:
+    get:
+      summary: Get all the carts of the user
+      tags:
+        - Carts
+      responses:
+        "200":
+          description: The carts were succesfully obtained from the database
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#components/schemas/Cart"
+        "500":
+          description: Error in the server, posibly an error in the connection with the database
+  /api/carts/{cid}:
+    get:
+      summary: Get a cart with its id from the database
+      tags:
+        - Carts
+      parameters:
+        - name: cid
+          in: path
+          required: true
+          description:
+          schema:
+            $type: String
+      responses:
+        "200":
+          description: Cart obtained from the database
+          content:
+            application/json:
+              schema:
+                $ref: "#components/schemas/Cart"
+    put:
+      summary: Updates a Cart from the database
+      tags:
+        - Carts
+      parameters:
+        - name: cid
+          in: path
+          required: true
+          description: id of the cart to update
+          schema:
+            $type: String
+      responses:
+        "200": 
+          description: Cart updated from the database
+          content:
+            application/json:
+              schema:
+                $ref: "#components/schemas/Cart"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "components/requestBodies/updateCart"
+    delete:
+      summary: deletes a cart from the database
+      tags:
+        - Carts
+      parameters:
+        - name: cid
+          required: true
+          description: id of the cart to delete from the database
+          schema:
+            $type: String
+      responses:
+        "200": 
+          description: Cart deleted from the database    
+  /api/carts/{cid}/product/{pid}:
+    post:
+      summary: Add products to the cart
+      tags:
+        - Carts
+      parameters:
+        - name: pid
+          in: path
+          required: true
+          description: Id of the product to obtain
+          schema:
+            $type: string
+        - name: cid
+          in: path
+          required: true
+          description: Id of the cart to obtain
+          schema:
+            $type: string
+      responses:
+        "200":
+          description: Product successfully added to the cart
+          content:
+            application/json:
+              schema:
+                $ref: "#components/schemas/Cart"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#components/requestBodies/productTothecart"
+      
+    put:
+      summary: Update quantity of the products from the cart
+      tags:
+        - Carts
+      parameters:
+        - name: pid
+          in: path
+          required: true
+          description: Id of the product to obtain
+          schema:
+            $type: String
+        - name: cid
+          in: path
+          required: true
+          description: Id of the cart to obtain
+          schema:
+            $type: String
+      responses:
+        "200":
+          description: Product successfully updated in the cart
+          content:
+            application/json:
+              schema:
+                $ref: "#components/schemas/Cart"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#components/requestBodies/productTothecart"
+    delete:
+      summary: Update quantity of the products from the cart
+      tags:
+        - Carts
+      parameters:
+        - name: pid
+          in: path
+          required: true
+          description: Id of the product to obtain
+          schema:
+            $type: String
+        - name: cid
+          in: path
+          required: true
+          description: Id of the cart to obtain
+          schema:
+            $type: String
+      responses:
+        "200":
+          description: Product successfully deleted from the cart
+          content:
+            application/json:
+              schema:
+                $ref: "#components/schemas/Cart"
+  /api/carts/{cid}/purchase:
+    get:
+      summary: Shows the ticket of the purchase of the products
+      tags:
+        - Carts
+      parameters:
+        - name: cid
+          in: path
+          required: true
+          description: Id of the cart to obtain
+          schema:
+            $type: String
+      responses:
+        "200":
+          description: Ticket of the purchase
+          content:
+            application/json:
+              schema:
+                $ref: "#components/requestBodies/ticketCart"
+components:
+  schemas:
+    Cart:
+      type: object
+      properties:
+        _id:
+          type: ObjectId
+          description: Id autogenerated from mongo
+        products:
+          type: array
+          description: Array where the id and the quantity of a product can be saved
+      example:
+        _id: ObjectId("645fe97ae6523821ba5768c9")
+        products: [
+          {
+            productId: ObjectId("6435d26ae8d538b99cf7f9e0"),
+            quantity: 1
+          }
+        ]
+  requestBodies:
+    productTothecart:
+      type: object
+      properties:
+        productId:
+          type: String
+        quantity:
+          type: Number
+      example:
+        {
+          productId: ObjectId("6435d26ae8d538b99cf7f9e0"),
+          quantity: 1
+        }
+    ticketCart:
+      type: object
+      properties:
+        code: 
+          type: String
+        purchase_datetime: 
+          type: Date
+        purchaser:
+          type: String
+        __v:
+          type: Number
+      example:
+        code: "7tDrC"
+        purchase_datetime: "6/7/2023, 2:39:27 PM"
+        purchaser: "limej73739@peogi.com"
+        __v: 0
+      
+        
+      
+     
+
+
+        
+

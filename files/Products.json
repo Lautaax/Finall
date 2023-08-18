@@ -1,0 +1,132 @@
+[
+	{
+		"id": 1,
+		"title": "Gabinete De Pc Aluna Case Mini Tower Al-k34 Fuente 500w",
+		"description": "Gabinete De Pc Aluna Mini Tower Al-k34 Fuente 500w / CPU / Puertos USB / Fuente 500w",
+		"code": "PR01",
+		"status":true,
+		"price": 16991,
+		"category": "Gabinete",
+		"owner": "admin",
+		"stock": 25,
+		"thumbnails":[
+			"http://localhost:8080/images/1681689657952-Gabinete-mid-tower_1.png"]
+	},
+	{
+		"id": 2,
+		"title": "Gabinete Gamer Xigmatek Master X Full 6 Fan Edition Templado",
+		"description": "INCLUYE 6 FANES 120 MM SIN LED CONEXION 3 PINES MOTHER , O MOLEX MACHO HEMBRA ( SE SPUEDE CONECTAR TODOS ENTRE SI A UN SOLO MOLEX) , CABLE LARGO 50 CM)",
+		"code": "PR02",
+		"status":true,
+		"price": 26624,
+		"category": "Gabinete",
+		"owner": "admin",
+		"stock": 25,
+		"thumbnails":[
+			"http://localhost:8080/images/1681689704267-Gabinete-gigmatek_1.png"]
+	},
+	{
+		"id": 3,
+		"title": "Micro Procesador Ryzen 5 4500 6 Nucleos 4.1ghz Amd Ddr4 Pc",
+		"description": "Clave en el rendimiento de tu computadora de escritorio, ya no tenés que pensar en cómo distribuir el tiempo y acciones porque ahora las tareas en simultáneo son posibles.",
+		"code": "PR03",
+		"status":true,
+		"price": 100,
+		"category": "Procesador",
+		"owner": "admin",
+		"stock": 25,
+		"thumbnails":[
+			"http://localhost:8080/images/1681689464000-Micro-Procesador-Ryzen-5-4500-6-Nucleos-4.1ghz-Amd-Ddr4.png"]
+	},
+	{
+		"id": 4,
+		"title": "Intel Core I5 10ma 14 8gb 480gb Enova Nuevo | +100 vendidos Notebook Intel Core I5 10ma 14 8gb 480gb Enova",
+		"description": "Producto: Notebook.Dimensiones: 323*219*19.7mm.Peso: 1419g.Material: Full Plastic Pantalla: 14 16:9.Resolución: 1920*1080 FHD,Batería: Batería de polímero de iones de litio.Capacidad bateria: 11.55V/3900mAh",
+		"code": "PR04",
+		"status":true,
+		"price": 100,
+		"category": "Notebook",
+		"owner": "admin",
+		"stock": 25,
+		"thumbnails":[
+			"http://localhost:8080/images/1681689919418-notebook enova.png"]
+	},
+	{
+		"id": 5,
+		"title": "Pasta Térmica Arctic Mx-4 4g Rendimiento + Paño Limpiador",
+		"description": "Grasa Térmica Arctic MX-4 de 4grs + Incluye 1 Pad Limpiador Medium Desengrasante para una mejor aplicación.",
+		"code": "PR05",
+		"status":true,
+		"price": 11322,
+		"category": "Pastas",
+		"owner": "admin",
+		"stock": 60,
+		"thumbnails":[
+			"http://localhost:8080/images/1681689834347-pasta-termica-obsequio.png"]
+	},
+	{
+		"id": 6,
+		"title": "Tornillos Electronica Tablet Notebook Varias Medidas",
+		"description": "Se entregan 30 unidades variados , (no se puede elegir ) tornillos metricos para notebook netebook tv equipos audio etc ,",
+		"code": "PR06",
+		"status":true,
+		"price": 9232,
+		"category": "Herramientas",
+		"owner": "admin",
+		"stock": 30,
+		"thumbnails":[
+			"http://localhost:8080/images/1681689954869-tornillos notebook.png"]
+	},
+	{
+		"id": 7,
+		"title": "Tornillos Kit Armador Pc Cpu Mother Dvd Hdd º40",
+		"description": "LSDCOMPUTACION 100% GARANTIA local al publico hace mas de 20 año. PRODUCTO:Kit 21 tornillos Pc cpu mother dvd hdd ssd M3 3mm 100% original nuevas con garantia ",
+		"code": "PR07",
+		"status":true,
+		"price": 398,
+		"category": "Herramientas",
+		"owner": "admin",
+		"stock": 25,
+		"thumbnails":[
+			"http://localhost:8080/images/1681689885194-kit tornillos cpu.png"]
+	},
+	{
+		"id": 8,
+		"title": "Carro Soporte Para Cpu Computadora Ruedas Melamina Oficina",
+		"description": "CARRO SOPORTE PARA CPU DE MELAMINA CON RUEDAS. Modelo ideal para Optimizar Espacio en Tu Oficina, Escritorio. Al Tener Ruedas Facilita su Transportación, Eleva su Equipo para Evitar el Polvo y Optimizar el Mantenimiento del Mismo.",
+		"code": "PR08",
+		"status":true,
+		"price": 3579,
+		"category": "Procesador",
+		"owner": "admin",
+		"stock": 25,
+		"thumbnails":[
+			"http://localhost:8080/images/1681689801171-carro-soporte-melamina.png"]
+	},
+	{
+		"id": 9,
+		"title": "Cooler Pc Gamer Intel Socket Lga 1200 1151 Amd Am4 Se903 Cuo",
+		"description": "El COOLER ID Cooling SE-903 SD es un disipador de calor para procesadores compatible con Intel LGA1700/1200/1151/1150/1155/1156 y AMD AM5/AM4/FM2+/FM2/FM1/AM3+/AM3/AM2+/AM2, con un TDP máximo de 130W.",
+		"code": "PR09",
+		"status":true,
+		"price": 13582,
+		"category": "Cooler",
+		"owner": "admin",
+		"stock": 25,
+		"thumbnails":[
+			"http://localhost:8080/images/1681689990022-cooler socket.png"]
+	},
+	{
+		"id": 10,
+		"title": "Cooler Cpu Id-cooling Se-903-sd Intel 1200 115x Amd Ryzen",
+		"description": "PCMODD ID-COOLING SE-903-SD",
+		"code": "PR10",
+		"status":true,
+		"price": 5872,
+		"category": "Cooler",
+		"owner": "admin",
+		"stock": 50,
+		"thumbnails":[
+			"http://localhost:8080/images/1685904944385-cooler-amd-1.png"]
+	}
+]

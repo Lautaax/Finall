@@ -1,0 +1,98 @@
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Informatic supplies</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="products">Home</a>
+        </li>
+      </ul>
+          <div><a href="/profile"><button>Profile</button></a></div>
+      <div><a href="/admin"><button>User administration</button></a></div>
+      <div><a href="cart/{{user.cart}}"><button>Show cart</button></a></div>
+      {{!-- {{#if valor}}
+         <div><a href="/form-products"><button>Product form</button></a></div>
+      {{/if}} --}}
+      
+       
+      <div><button id="logout">Log out</button></div>
+    </div>
+  </div>
+</nav>
+<div id="app" class="p-4 bg-slate-800/95 h-auto">
+
+  <h1
+    class="flex p-4 mb-4 justify-center font-mono text-2xl text-slate-200"
+  >Welcome to the Chat section!</h1>
+  <h2 class="flex p-2 justify-center font-mono text-2xl text-slate-200">Time for
+    some chit-chat 😁</h2>
+  <div class="w-auto mx-2">
+    <br /><hr /><br />
+  </div>
+
+  <div
+    class="flex flex-col justify-around w-auto m-2 bg-gray-800 px-8 py-8 rounded-xl"
+  >
+    <label
+      for="chatBox"
+      class="flex py-2 mb-2 font-mono text-lg text-slate-200"
+    >Chat here! Press enter to send a message:</label>
+    <input
+      id="chatBox"
+      class="p-2 block w-full border rounded-lg text-gray-400 focus:outline-none bg-gray-700 border-gray-600"
+    />
+  </div>
+
+  <div id="messagesList">
+    {{#each messages}}
+      <div
+        class="flex flex-row text-slate-200 w-10/12 border rounded-lg shadow bg-gray-700/90 border-gray-600 my-4 m-auto items-center"
+      >
+        <div
+          class="relative w-10 h-10 overflow-hidden bg-gray-700 ring-2 ring-gray-400 rounded-full flex-shrink-0 mx-3"
+        >
+          <svg
+            class="absolute w-12 h-12 text-gray-500 -left-1"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </div>
+        <div class="my-3 ml-1 mr-4 text-justify text-slate-300">
+          <p
+            class="font-mono text-lg font-medium tracking-wider text-slate-50"
+          >{{this.user}}</p>
+          <p>{{this.message}}</p>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+
+  <div class="w-auto mx-2">
+    <br /><hr /><br />
+  </div>
+
+    <a href="/products">
+      <button
+        class="text-slate-100 bg-blue-600 hover:bg-blue-700 active:bg-blue-900 focus:ring-2 focus:outline-none focus:ring-blue-700 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mr-2"
+      >Take me home! 🏚️</button>
+    </a>
+  </div>
+</div>
+<script
+  src="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js
+"
+></script>
+<script src="/socket.io/socket.io.js"></script>
+<script type="module" src="/js/chat.js"></script>

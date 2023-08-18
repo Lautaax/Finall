@@ -1,0 +1,50 @@
+{{!-- <div id="login">
+  <h1>Login</h1>
+  <form id="loginForm">
+    <label>Email</label>
+    <input name="email" id="email"/>
+    <br />
+    <label>Contraseña</label>
+    <input type="password" name="password" id="password" />
+    <input type="submit" />
+  </form>
+  <p>¿No estás registrado? <a href="/register">Regístrate aquí</a></p>
+</div> --}}
+<div>
+  <form id="login">
+
+  <h2 class="titleLogin" >Login</h2>
+  <div class="form-outline mb-4" >
+    <input type="email" name="email" id="email" class="form-control" />
+    <label class="form-label" for="form2Example1">Email address</label>
+  </div>
+
+
+  <div class="form-outline mb-4">
+    <input type="password" name="password" id="password" class="form-control" />
+    <label class="form-label" for="form2Example2">Password</label>
+  </div>
+
+
+
+  <!-- Submit button -->
+  <button type="submit" class="btn btn-primary btn-block mb-4" style="position: relative; left: 2%;">Sign in</button>
+ 
+  <!-- Register buttons -->
+  <div class="text-center" style="position: relative; left: 2%">
+    <p>Not a member? <a href="/register">Register</a></p>
+  </div>
+
+  <div class="text-center" style="position: relative; left: 2%">   
+    <a href="/formemailrecovery">Recovery password</a>
+    
+  </div>
+</form>
+<div class=" githubButton"> <a href="/api/sessions/github"><button class="btn btn-warning">Enter with Github</button></a></div>
+</div>
+
+
+<script src="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js
+"></script>
+<script src="/js/login.js"></script>

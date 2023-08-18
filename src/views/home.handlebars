@@ -1,0 +1,83 @@
+<div id="app" class="p-4 bg-slate-800/95 h-auto">
+
+  <div id="productsList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    {{#each products}}
+      <div
+        class="max-w-sm border rounded-lg shadow bg-gray-800 border-gray-700 m-1"
+        id="{{this._id}}"
+      >
+        <div class="flex flex-wrap w-full p-2 justify-evenly">
+          {{#each this.thumbnails}}
+            <img
+              src="{{this}}"
+              alt="product image"
+              class="aspect-square max-h-40 m-2 ring-4 rounded-xl"
+            />
+          {{/each}}
+        </div>
+
+        <div class="px-5 pb-5">
+          <h5
+            class="text-2xl font-semibold tracking-tight text-white"
+          >{{this.title}}</h5>
+          <p
+            class="text-xs font-semibold tracking-tight text-white"
+          >{{this.description}}</p>
+          <form id="addToCartForm-{{this._id}}">
+            <div class="flex items-center justify-between">
+              <p class="text-3xl font-bold text-white pt-2">${{this.price}}</p>
+              <button
+                type="submit"
+                class="text-slate-100 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center -mb-3"
+              >Add to cart 🛒</button>
+            </div>
+            <div class="relative z-0 w-full mt-4 group">
+              <input
+                class="block py-2.5 px-0 w-full text-sm text-slate-200 bg-transparent border-0 border-b-2 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-blue-500 peer"
+                placeholder=" "
+                type="text"
+                name="cid"
+                id="cid"
+                required
+              />
+              <label
+                class="peer-focus:font-medium absolute text-sm text-slate-200 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-90 peer-focus:-translate-y-6"
+                for="cid"
+              >Cart ID</label>
+            </div>
+          </form>
+          <a href="product/{{this._id}}">
+            <button
+              class="text-slate-100 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mt-2"
+            >Product Details</button>
+          </a>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+  <div class="flex flex-row justify-center m-4">
+    {{#if hasPrevPage}}
+      <a href="/realTimeProducts?page={{prevPage}}"><button
+          class="text-slate-100 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-8 py-2.5 text-center ml-2"
+        >Previous</button></a>
+    {{/if}}
+
+    <p
+      class="text-slate-100 bg-gray-500/50 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-6 py-2.5 text-center mx-4"
+    >{{page}}</p>
+
+    {{#if hasNextPage}}
+      <a href="/realTimeProducts
+      ?page={{nextPage}}"><button
+          class="text-slate-100 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-8 py-2.5 text-center ml-2"
+        >Next</button></a>
+    {{/if}}
+  </div>
+
+</div>
+<script
+  src="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js
+"
+></script>
+<script src="/js/products.js"></script>

@@ -1,0 +1,96 @@
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Informatic supplies</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="products">Home</a>
+        </li>
+      </ul>
+          <div><a href="/profile"><button>Profile</button></a></div>
+      <div><a href="/admin"><button>User administration</button></a></div>
+      <div><a href="cart/{{user.cart}}"><button>Show cart</button></a></div>
+      {{!-- {{#if valor}}
+         <div><a href="/form-products"><button>Product form</button></a></div>
+      {{/if}} --}}
+      
+       
+      <div><button id="logout">Log out</button></div>
+    </div>
+  </div>
+</nav>
+<div id="app">
+
+  <h1 style="display: flex; justify-content: center;">Bienvenido {{user.first_name}} {{user.last_name}} </h1>
+  <h2>{{user.email}}</h2>
+  <h2>{{user.age}}</h2>
+  <h2 style="visibility:hidden">{{user.role}}</h2>
+  <input type="text" name="cid" id="cid" style="visibility:hidden" value={{user.cart}} />
+
+  <h2 class="flex p-2 justify-center font-mono text-2xl text-slate-200">Products list</h2>
+  <h2 class="flex p-2 justify-center font-mono text-xl text-slate-200">Check our
+    products:</h2>
+
+  <div id="productsList">
+    {{#each products}}
+    <div class="max-w-sm border rounded-lg shadow bg-gray-800 border-gray-700 m-1" id="{{this._id}}">
+      <div class="flex flex-wrap w-full p-2 justify-evenly">
+        {{#each this.thumbnails}}
+        <img src="{{this}}" alt="product image" class="aspect-square max-h-40 m-2 ring-4 rounded-xl" />
+        {{/each}}
+      </div>
+
+      <div class="px-5 pb-5">
+        <h5>{{this.title}}</h5>
+        <p>{{this.description}}</p>
+        <p id="stock">Available stock:
+          {{this.stock}}</p>
+
+
+        <form id="addToCartForm-{{this._id}}">
+          <div>
+            <p>${{this.price}}</p>
+            <button type="submit">Add
+              to cart</button>
+          </div>
+          {{!-- <div>
+
+            <label for="cid">Cart ID</label>
+          </div> --}}
+
+        </form>
+        <a href="product/{{this._id}}">
+          <button
+            class="text-slate-100 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mt-2">Product
+            Details</button>
+        </a>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  <div class="flex flex-row justify-center m-4">
+    {{#if hasPrevPage}}
+    <a href="/products?page={{prevPage}}"><button
+        class="text-slate-100 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-8 py-2.5 text-center ml-2">Previous</button></a>
+    {{/if}}
+
+    <p
+      class="text-slate-100 bg-gray-500/50 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-6 py-2.5 text-center mx-4">
+      {{page}}</p>
+
+    {{#if hasNextPage}}
+    <a href="/products?page={{nextPage}}"><button
+        class="text-slate-100 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-8 py-2.5 text-center ml-2">Next</button></a>
+    {{/if}}
+  </div>
+
+</div>
+<script src="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js
+"></script>
+
+<script type="module" src="/js/products.js"></script>

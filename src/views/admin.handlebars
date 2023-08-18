@@ -1,0 +1,73 @@
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Informatic supplies</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="products">Home</a>
+        </li>
+      </ul>
+          <div><a href="/profile"><button>Profile</button></a></div>
+      <div><a href="/admin"><button>User administration</button></a></div>
+      <div><a href="cart/{{user.cart}}"><button>Show cart</button></a></div>
+      {{!-- {{#if valor}}
+         <div><a href="/form-products"><button>Product form</button></a></div>
+      {{/if}} --}}
+      
+       
+      <div><button id="logout">Log out</button></div>
+    </div>
+  </div>
+</nav>
+<h1>User administration</h1>
+  <div class="flex justify-center flex-col gap-4 mx-12">
+    {{#each parsedUsers}}
+      <div class="bg-slate-600/50 flex flex-row items-center gap-2 rounded-md hover:bg-slate-500/50 transition-all duration-75">
+        {{#if this.profile_picture}}
+            <img
+                src="/{{this.profile_picture}}"
+                alt="profile picture"
+                class="w-12 h-12 m-2 mx-4 ring-2 ring-slate-500 rounded-full my-4 object-cover"
+            />
+          {{else}}
+          <svg
+            class="w-14 h-14 m-2 mx-4 py-[2px] rounded-full text-gray-400"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        {{/if}}
+        <div class="flex justify-between w-full">
+          <div class="flex flex-col gap-1">
+            <h3 class="text-lg font-semibold tracking-wider text-slate-100">{{this._doc.first_name}} {{this._doc.last_name}}</h3>
+            <p class="text-sm font-light text-slate-300">Email: {{this._doc.email}}</p>
+            <p class="text-sm font-light text-slate-300">Role: {{this._doc.role}}</p>
+            <p class="text-sm font-light text-slate-300">Last connection: {{this.last_connection}}</p>
+          </div>
+          {{!-- <h5>{{this._doc.cart}}</h5>
+          <h5>{{this._doc._id}}</h5> --}}
+        <button id="deleteUser-{{this._doc.cart}}" class="text-slate-100 bg-red-700 hover:bg-red-800 focus:ring-2 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm w-auto px-3 mx-4 text-center"><span>Delete user</span></button>
+         <button id="changeRole-{{this._doc._id}}" class="text-slate-100 bg-red-700 hover:bg-red-800 focus:ring-2 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm w-auto px-3 mx-4 text-center"><span>Change role</span></button>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+  <div class="flex">
+    <button id="deleteInactiveUsers" class="text-slate-100 bg-red-700 hover:bg-red-800 focus:ring-2 focus:outline-none focus:ring-red-600 shadow-md shadow-red-700/60 font-medium rounded-md text-lg w-auto p-3 my-4 ml-14 text-center"><span>Delete inactive users</span></button>
+  </div>
+<script
+  src="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js
+"
+></script>
+<script src="/js/admin.js" type="module"></script>
